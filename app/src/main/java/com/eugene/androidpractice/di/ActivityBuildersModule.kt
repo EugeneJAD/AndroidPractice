@@ -2,6 +2,8 @@ package com.eugene.androidpractice.di
 
 import com.eugene.androidpractice.ui.MainActivity
 import com.eugene.androidpractice.ui.MainActivityModule
+import com.eugene.androidpractice.ui.localization.LanguageSettingsActivity
+import com.eugene.androidpractice.ui.localization.LanguageSettingsActivityModule
 import com.eugene.androidpractice.ui.rx.RXActivity
 import com.eugene.androidpractice.ui.rx.RxActivityModule
 import dagger.Module
@@ -15,5 +17,8 @@ abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector(modules = [RxActivityModule::class, FragmentBuildersModule::class])
     abstract fun contributeRXActivity(): RXActivity
+
+    @ContributesAndroidInjector(modules = [LanguageSettingsActivityModule::class, FragmentBuildersModule::class])
+    abstract fun contributeLanguageSettingsActivity(): LanguageSettingsActivity
 }
 

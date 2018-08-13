@@ -2,7 +2,9 @@ package com.eugene.androidpractice.data.repository.local
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.eugene.androidpractice.utils.PREFS_LANGUAGE_KEY
 import com.eugene.androidpractice.utils.SP_NAME
+import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -58,4 +60,11 @@ class PrefsManager @Inject constructor(context: Context) {
     fun retrieveFloat(key: String, defValue: Float): Float {
         return sharedPreferences.getFloat(key, defValue)
     }
+
+    fun saveLanguageCode(languageCode: String) {
+        saveString(PREFS_LANGUAGE_KEY, languageCode)
+    }
+
+    fun getLanguageCode(): String =
+        retrieveString(PREFS_LANGUAGE_KEY, Locale.getDefault().language).toLowerCase()
 }

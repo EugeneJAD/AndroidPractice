@@ -22,7 +22,8 @@ class RXActivity : AppCompatActivity(), HasSupportFragmentInjector {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rx)
 
-        appNavigator.navigateToRxPracticeFragment()
+        if(savedInstanceState == null)
+            appNavigator.navigateToRxPracticeFragment()
     }
 
     override fun supportFragmentInjector(): AndroidInjector<Fragment> = dispatchingAndroidInjector

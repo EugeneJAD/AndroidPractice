@@ -1,33 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
-
+    tools:context=".ui.localization.LanguageSettingsActivity">
 
     <Button
-        android:id="@+id/rx_button"
+        android:id="@+id/button_english"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/rx_observer"
+        android:text="@string/english"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="clickHandler"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/localization_button"
+        android:id="@+id/button_ukrainian"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/language_settings"
+        android:text="@string/ukrainian"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rx_button"
-        android:onClick="clickHandler"/>
-
+        app:layout_constraintTop_toBottomOf="@+id/button_english" />
 </android.support.constraint.ConstraintLayout>

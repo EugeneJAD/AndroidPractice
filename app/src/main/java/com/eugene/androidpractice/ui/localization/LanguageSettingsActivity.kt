@@ -1,32 +1,30 @@
-package com.eugene.androidpractice.ui
+package com.eugene.androidpractice.ui.localization
 
 import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.content.res.Configuration
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.view.View
+import android.widget.Toast
 import com.eugene.androidpractice.R
-import com.eugene.androidpractice.ui.base.AppNavigator
-import com.eugene.androidpractice.ui.rx.RxPracticeFragment
+import com.eugene.androidpractice.data.repository.local.PrefsManager
 import com.eugene.androidpractice.utils.*
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_language_settings.*
 import java.util.*
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
+class LanguageSettingsActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
 
     @Inject
-    lateinit var appNavigator: AppNavigator
+    lateinit var prefsManager: PrefsManager
 
     @Inject
     lateinit var localeManager: LocaleManager
@@ -46,28 +44,33 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_language_settings)
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
             localeManager.setLocale()
+
+        button_english.setOnClickListener {
+            if(prefsManager.getLanguageCode() != LANGUAGE_CODE_ENGLISH) {
+                prefsManager.saveLanguageCode(LANGUAGE_CODE_ENGLISH)
+                showToast("App language is English")
+                setResult(Activity.RESULT_OK)
+                finish()
+            }
+        }
+
+        button_ukrainian.setOnClickListener {
+            if(prefsManager.getLanguageCode() != LANGUAGE_CODE_UKRAINIAN) {
+                prefsManager.saveLanguageCode(LANGUAGE_CODE_UKRAINIAN)
+                showToast("Мова додатка українська")
+                setResult(Activity.RESULT_OK)
+                finish()
+            }
+        }
     }
 
-    fun clickHandler(v: View){
-        when(v.id){
-            rx_button.id -> appNavigator.navigateToRx()
-            localization_button.id -> appNavigator.navigateToLanguageSettings()
-        }
+    private fun showToast(message: String){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     override fun supportFragmentInjector(): AndroidInjector<Fragment> = dispatchingAndroidInjector
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == SWITCH_LANGUAGE_REQUEST && resultCode == Activity.RESULT_OK) {
-            //Recreate activity to create new ConfigurationContext with appropriate resources
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
-                localeManager.setLocale()
-            recreate()
-        }
-    }
 }

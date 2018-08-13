@@ -29,7 +29,8 @@ class RxPracticeFragment : Fragment(), Injectable {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(RxPracticeFragmentViewModel::class.java)
-        viewModel.getSampleObservable()
+        if(savedInstanceState == null)
+            viewModel.getSampleObservable()
         observeViewModel()
     }
 

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">АндроідПрактика</string>
+    <string name="hello_blank_fragment">Привіт порожній фрагмент</string>
+    <string name="rx_observer">Rx спостерігач</string>
+    <string name="result">Результат:</string>
+    <string name="english">Англійська</string>
+    <string name="ukrainian">Українська</string>
+    <string name="language_settings">Налаштування мови</string>
+</resources>
