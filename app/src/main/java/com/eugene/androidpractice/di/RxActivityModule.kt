@@ -1,6 +1,7 @@
-package com.eugene.androidpractice.ui.rx
+package com.eugene.androidpractice.di
 
 import android.support.v4.app.FragmentActivity
+import com.eugene.androidpractice.ui.rx.RXActivity
 import dagger.Module
 import dagger.Provides
 

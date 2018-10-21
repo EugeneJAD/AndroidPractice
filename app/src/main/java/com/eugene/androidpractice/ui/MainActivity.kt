@@ -56,6 +56,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
         when(v.id){
             rx_button.id -> appNavigator.navigateToRx()
             localization_button.id -> appNavigator.navigateToLanguageSettings()
+            animations_button.id -> appNavigator.navigateToAnimations()
         }
     }
 

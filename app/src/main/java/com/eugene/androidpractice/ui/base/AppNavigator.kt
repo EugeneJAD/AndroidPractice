@@ -1,5 +1,6 @@
 package com.eugene.androidpractice.ui.base
 import com.eugene.androidpractice.R
+import com.eugene.androidpractice.ui.animation.KeyFrameAnimationsActivity
 import com.eugene.androidpractice.ui.localization.LanguageSettingsActivity
 import com.eugene.androidpractice.ui.rx.RXActivity
 import com.eugene.androidpractice.ui.rx.RxPracticeFragment
@@ -18,5 +19,9 @@ class AppNavigator @Inject constructor(private val navigation: NavigationControl
 
     fun navigateToLanguageSettings() {
         navigation.startActivityForResult(LanguageSettingsActivity::class.java, SWITCH_LANGUAGE_REQUEST)
+    }
+
+    fun navigateToAnimations() {
+        navigation.startActivity(KeyFrameAnimationsActivity::class.java)
     }
 }
