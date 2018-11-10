@@ -96,7 +96,7 @@ constructor(val activity: FragmentActivity) : Navigator {
         if (args != null)
             intent.putExtras(args)
 
-        if(newTask){
+        if (newTask) {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
         }
@@ -116,7 +116,7 @@ constructor(val activity: FragmentActivity) : Navigator {
         if (fragmentTag != null) {
             if (isFragmentTheSame(getCurrentFragment(containerId), fragment))
                 return
-            if(fragmentManager.findFragmentByTag(fragmentTag)!=null) {
+            if (fragmentManager.findFragmentByTag(fragmentTag) != null) {
                 frag = fragmentManager.findFragmentByTag(fragmentTag)
                 fragTag = frag.tag
                 _addToBackStack = false
@@ -128,8 +128,10 @@ constructor(val activity: FragmentActivity) : Navigator {
         }
 
         val ft = fragmentManager.beginTransaction()
-        if (enterAnimation != null && exitAnimation != null)
-            ft.setCustomAnimations(enterAnimation, exitAnimation, popEnterAnimation!!, popExitAnimation!!)
+        if (enterAnimation != null && exitAnimation != null && popEnterAnimation != null && popExitAnimation != null)
+            ft.setCustomAnimations(enterAnimation, exitAnimation, popEnterAnimation, popExitAnimation)
+        else if (enterAnimation != null && exitAnimation != null)
+            ft.setCustomAnimations(enterAnimation, exitAnimation)
         ft.replace(containerId, frag, fragTag)
         if (_addToBackStack) {
             ft.addToBackStack(backstackTag).commit()

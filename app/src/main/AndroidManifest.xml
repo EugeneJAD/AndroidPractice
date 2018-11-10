@@ -21,8 +21,11 @@
         </activity>
         <activity android:name=".ui.rx.RXActivity" />
         <activity android:name=".ui.localization.LanguageSettingsActivity" />
-        <activity android:name=".ui.animation.KeyFrameAnimationsActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ui.animation.KeyFrameAnimationsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.animation.MainAnimationsActivity" />
+        <activity android:name=".ui.animation.shared.MainSharedAnimationsActivity" />
     </application>
 
 </manifest>
