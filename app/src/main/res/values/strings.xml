@@ -13,4 +13,5 @@
     <string name="key_frame_button_label" translatable="false">Key Frame Animations</string>
     <string name="shared_element_button_label" translatable="false">Shared Element Animations</string>
     <string name="logoTransitionName" translatable="false">logoTransitionName</string>
+    <string name="titleTransitionName" translatable="false">title_trans</string>
 </resources>

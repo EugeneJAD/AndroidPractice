@@ -1,17 +1,17 @@
 package com.eugene.androidpractice.ui.base
 
-import android.media.Image
-import android.support.annotation.IdRes
+import android.app.ActivityOptions
+import android.content.Intent
 import android.support.transition.Fade
 import android.support.transition.Transition
-import android.support.transition.TransitionInflater
 import android.support.v7.widget.AppCompatImageView
 import android.view.View
-import android.widget.ImageView
+import android.widget.TextView
 import com.eugene.androidpractice.R
 import com.eugene.androidpractice.ui.animation.KeyFrameAnimationsActivity
 import com.eugene.androidpractice.ui.animation.MainAnimationsActivity
 import com.eugene.androidpractice.ui.animation.shared.MainSharedAnimationsActivity
+import com.eugene.androidpractice.ui.animation.shared.SecondSharedAnimationsActivity
 import com.eugene.androidpractice.ui.animation.shared.SharedElementFirstFragment
 import com.eugene.androidpractice.ui.animation.shared.SharedElementSecondFragment
 import com.eugene.androidpractice.ui.localization.LanguageSettingsActivity
@@ -19,6 +19,8 @@ import com.eugene.androidpractice.ui.rx.RXActivity
 import com.eugene.androidpractice.ui.rx.RxPracticeFragment
 import com.eugene.androidpractice.utils.SWITCH_LANGUAGE_REQUEST
 import javax.inject.Inject
+// Rename the Pair class from the Android framework to avoid a name clash
+import android.util.Pair as UtilPair
 
 class AppNavigator @Inject constructor(private val navigation: NavigationController) {
 
@@ -58,6 +60,7 @@ class AppNavigator @Inject constructor(private val navigation: NavigationControl
                 .commit()
     }
 
+    //Navigation to navigateToSharedElementFragmentTwo with 1 shared image
     fun navigateToSharedElementFragmentTwo(sharedImage: AppCompatImageView,
                                            elementEnterTransition: Transition) {
         val fm = navigation.activity.supportFragmentManager
@@ -73,5 +76,15 @@ class AppNavigator @Inject constructor(private val navigation: NavigationControl
                         })
                 .addToBackStack(null)
                 .commitAllowingStateLoss()
+    }
+
+    //Navigation to SecondSharedAnimationsActivity with 2 shared elements
+    fun navigateToSecondSharedAnimationsActivity(sharedImage: AppCompatImageView, sharedTitle: TextView) {
+        val options = ActivityOptions.makeSceneTransitionAnimation(navigation.activity,
+                UtilPair.create<View, String>(sharedImage, sharedImage.transitionName),
+                UtilPair.create<View, String>(sharedTitle, sharedTitle.transitionName))
+        navigation.activity.startActivity(
+                Intent(navigation.activity, SecondSharedAnimationsActivity::class.java),
+                options.toBundle())
     }
 }
