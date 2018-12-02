@@ -28,7 +28,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.animation.MainAnimationsActivity" />
         <activity android:name=".ui.animation.shared.MainSharedAnimationsActivity" />
-        <activity android:name=".ui.animation.shared.SecondSharedAnimationsActivity"></activity>
+        <activity android:name=".ui.animation.shared.SecondSharedAnimationsActivity" />
+        <activity android:name=".ui.inflate.InflaterActivity"></activity>
     </application>
 
 </manifest>
