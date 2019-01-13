@@ -117,7 +117,7 @@ constructor(val activity: FragmentActivity) : Navigator {
             if (isFragmentTheSame(getCurrentFragment(containerId), fragment))
                 return
             if (fragmentManager.findFragmentByTag(fragmentTag) != null) {
-                frag = fragmentManager.findFragmentByTag(fragmentTag)
+                frag = fragmentManager.findFragmentByTag(fragmentTag) as Fragment
                 fragTag = frag.tag
                 _addToBackStack = false
             }

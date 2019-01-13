@@ -2,6 +2,7 @@ package com.eugene.androidpractice.di
 
 import android.app.Application
 import com.eugene.androidpractice.AndroidPracticeApp
+import com.eugene.androidpractice.di.activities.ActivityBuildersModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule

@@ -10,13 +10,14 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
 
 class RxPracticeFragmentViewModel @Inject constructor(private val repository: Repository,
-                                                      resources: Resources)
-    : ViewModel() {
-
+                                                      resources: Resources) : ViewModel()
+{
     private val _compositeDisposables = CompositeDisposable()
     val result = MutableLiveData<String>()
     var resultText: String = resources.getString(R.string.result)

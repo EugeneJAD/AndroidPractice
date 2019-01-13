@@ -17,4 +17,6 @@
     <string name="inflater">Inflater</string>
     <string name="add_view">Add view</string>
     <string name="print_results">Print results</string>
+    <string name="coroutines">Coroutines</string>
+    <string name="hello_from_couroutines">hello from couroutines</string>
 </resources>

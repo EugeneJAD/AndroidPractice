@@ -29,7 +29,8 @@
         <activity android:name=".ui.animation.MainAnimationsActivity" />
         <activity android:name=".ui.animation.shared.MainSharedAnimationsActivity" />
         <activity android:name=".ui.animation.shared.SecondSharedAnimationsActivity" />
-        <activity android:name=".ui.inflate.InflaterActivity"></activity>
+        <activity android:name=".ui.inflate.InflaterActivity" />
+        <activity android:name=".ui.coroutines.CoroutinesActivity"></activity>
     </application>
 
 </manifest>

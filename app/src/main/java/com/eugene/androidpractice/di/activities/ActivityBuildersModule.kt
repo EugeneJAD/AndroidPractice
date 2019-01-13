@@ -1,10 +1,12 @@
-package com.eugene.androidpractice.di
+package com.eugene.androidpractice.di.activities
 
+import com.eugene.androidpractice.di.*
 import com.eugene.androidpractice.ui.MainActivity
 import com.eugene.androidpractice.ui.animation.KeyFrameAnimationsActivity
 import com.eugene.androidpractice.ui.animation.MainAnimationsActivity
 import com.eugene.androidpractice.ui.animation.shared.MainSharedAnimationsActivity
 import com.eugene.androidpractice.ui.animation.shared.SecondSharedAnimationsActivity
+import com.eugene.androidpractice.ui.coroutines.CoroutinesActivity
 import com.eugene.androidpractice.ui.localization.LanguageSettingsActivity
 import com.eugene.androidpractice.ui.rx.RXActivity
 import dagger.Module
@@ -33,5 +35,8 @@ abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector(modules = [SecondAnimationsActivityModule::class, FragmentBuildersModule::class])
     abstract fun contributeSecondSharedAnimationsActivity(): SecondSharedAnimationsActivity
+
+    @ContributesAndroidInjector(modules = [CoroutinesActivityModule::class, FragmentBuildersModule::class])
+    abstract fun contributeCoroutinesActivity(): CoroutinesActivity
 }
 

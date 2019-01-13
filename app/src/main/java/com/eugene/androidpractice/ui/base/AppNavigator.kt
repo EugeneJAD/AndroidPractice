@@ -14,6 +14,7 @@ import com.eugene.androidpractice.ui.animation.shared.MainSharedAnimationsActivi
 import com.eugene.androidpractice.ui.animation.shared.SecondSharedAnimationsActivity
 import com.eugene.androidpractice.ui.animation.shared.SharedElementFirstFragment
 import com.eugene.androidpractice.ui.animation.shared.SharedElementSecondFragment
+import com.eugene.androidpractice.ui.coroutines.CoroutinesActivity
 import com.eugene.androidpractice.ui.inflate.InflaterActivity
 import com.eugene.androidpractice.ui.localization.LanguageSettingsActivity
 import com.eugene.androidpractice.ui.rx.RXActivity
@@ -91,5 +92,9 @@ class AppNavigator @Inject constructor(private val navigation: NavigationControl
 
     fun navigateToInflater() {
         navigation.startActivity(InflaterActivity::class.java)
+    }
+
+    fun navigateToCoroutines() {
+        navigation.startActivity(CoroutinesActivity::class.java)
     }
 }
