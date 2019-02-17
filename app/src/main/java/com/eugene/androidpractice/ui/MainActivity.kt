@@ -11,7 +11,6 @@ import android.support.v4.app.Fragment
 import android.view.View
 import com.eugene.androidpractice.R
 import com.eugene.androidpractice.ui.base.AppNavigator
-import com.eugene.androidpractice.ui.rx.RxPracticeFragment
 import com.eugene.androidpractice.utils.*
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -59,6 +58,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
             animations_button.id -> appNavigator.navigateToAnimations()
             inflater_button.id -> appNavigator.navigateToInflater()
             coroutines_button.id -> appNavigator.navigateToCoroutines()
+            media_button.id -> appNavigator.navigateToMedia()
         }
     }
 

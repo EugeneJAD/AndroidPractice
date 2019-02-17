@@ -19,4 +19,8 @@
     <string name="print_results">Print results</string>
     <string name="coroutines">Coroutines</string>
     <string name="hello_from_couroutines">hello from couroutines</string>
+    <string name="take_a_photo">Take a photo</string>
+    <string name="choose_from_gallery">Choose from gallery</string>
+    <string name="photos">Photos</string>
+    <string name="media">Media</string>
 </resources>
