@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.eugene.androidpractice">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -18,7 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.media.MediaActivity"></activity>
+        <activity android:name=".ui.recyclerview.RecyclerViewActivity"></activity>
+        <activity android:name=".ui.media.MediaActivity" />
         <activity
             android:name=".ui.MainActivity"
             android:launchMode="singleTop">

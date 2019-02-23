@@ -18,6 +18,7 @@ import com.eugene.androidpractice.ui.coroutines.CoroutinesActivity
 import com.eugene.androidpractice.ui.inflate.InflaterActivity
 import com.eugene.androidpractice.ui.localization.LanguageSettingsActivity
 import com.eugene.androidpractice.ui.media.MediaActivity
+import com.eugene.androidpractice.ui.recyclerview.RecyclerViewActivity
 import com.eugene.androidpractice.ui.rx.RXActivity
 import com.eugene.androidpractice.ui.rx.RxPracticeFragment
 import com.eugene.androidpractice.utils.SWITCH_LANGUAGE_REQUEST
@@ -101,5 +102,9 @@ class AppNavigator @Inject constructor(private val navigation: NavigationControl
 
     fun navigateToMedia() {
         navigation.startActivity(MediaActivity::class.java)
+    }
+
+    fun navigateToRV() {
+        navigation.startActivity(RecyclerViewActivity::class.java)
     }
 }

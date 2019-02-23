@@ -8,6 +8,7 @@ import com.eugene.androidpractice.ui.animation.shared.MainSharedAnimationsActivi
 import com.eugene.androidpractice.ui.animation.shared.SecondSharedAnimationsActivity
 import com.eugene.androidpractice.ui.coroutines.CoroutinesActivity
 import com.eugene.androidpractice.ui.localization.LanguageSettingsActivity
+import com.eugene.androidpractice.ui.recyclerview.RecyclerViewActivity
 import com.eugene.androidpractice.ui.rx.RXActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -38,5 +39,8 @@ abstract class ActivityBuildersModule {
 
     @ContributesAndroidInjector(modules = [CoroutinesActivityModule::class, FragmentBuildersModule::class])
     abstract fun contributeCoroutinesActivity(): CoroutinesActivity
+
+    @ContributesAndroidInjector(modules = [RecyclerViewActivityModule::class, FragmentBuildersModule::class])
+    abstract fun contributeRecyclerViewActivity(): RecyclerViewActivity
 }
 

@@ -23,4 +23,5 @@
     <string name="choose_from_gallery">Choose from gallery</string>
     <string name="photos">Photos</string>
     <string name="media">Media</string>
+    <string name="recycler_view">Recycler view</string>
 </resources>

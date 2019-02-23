@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
             inflater_button.id -> appNavigator.navigateToInflater()
             coroutines_button.id -> appNavigator.navigateToCoroutines()
             media_button.id -> appNavigator.navigateToMedia()
+            rv_button.id -> appNavigator.navigateToRV()
         }
     }
 
