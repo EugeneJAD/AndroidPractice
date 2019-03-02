@@ -5,10 +5,12 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.content.res.Resources
 import com.eugene.androidpractice.R
+import com.eugene.androidpractice.data.model.SimpleModel
 import com.eugene.androidpractice.utils.SingleLiveEvent
 import kotlinx.coroutines.*
 import java.io.IOException
 import javax.inject.Inject
+import kotlin.random.Random
 
 class CoroutinesViewModel @Inject constructor(val resources: Resources) : ViewModel() {
 
@@ -40,6 +42,7 @@ class CoroutinesViewModel @Inject constructor(val resources: Resources) : ViewMo
      */
     private val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
+    val listOfItems = MutableLiveData<List<SimpleModel>>()
     /**
      * Called from the CoroutinesActivity
      */
@@ -47,6 +50,36 @@ class CoroutinesViewModel @Inject constructor(val resources: Resources) : ViewMo
         launchDataLoad {
             loadSomething()
         }
+    }
+
+    /**
+     * Called from the CoroutinesActivity.
+     * Parallel calls with async and awaitAll.
+     */
+    fun loadTitles() {
+        val list = mutableListOf<SimpleModel>().apply {
+            for (i in 0..10)
+                add(SimpleModel(i, ""))
+        }
+        listOfItems.value = list
+        launchDataLoad {
+            val listOfDeferred = list.map {
+                GlobalScope.async {
+                    it.title = loadTitle()
+                    it
+                }
+            }
+            listOfItems.value = listOfDeferred.awaitAll()
+        }
+    }
+
+    @Throws(IOException::class)
+    private suspend fun loadTitle(): String {
+        delay(3000)
+        val id = Random.nextInt(100)
+        if (id > 95)
+            throw IOException("Unknown Error Occurred")
+        return "Item $id"
     }
 
     private suspend fun loadSomething() {

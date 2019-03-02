@@ -21,8 +21,10 @@ class CoroutinesActivity : BaseActivity<CoroutinesViewModel>(), HasSupportFragme
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_coroutines)
-        if (savedInstanceState == null)
+        if (savedInstanceState == null) {
             viewModel.startSimpleCoroutine()
+            viewModel.loadTitles()
+        }
         observeViewModel()
     }
 
@@ -32,6 +34,9 @@ class CoroutinesActivity : BaseActivity<CoroutinesViewModel>(), HasSupportFragme
         })
         viewModel.loading.observe(this, Observer {
             it?.let { loading -> progress.visibility = if (loading) View.VISIBLE else View.GONE }
+        })
+        viewModel.listOfItems.observe(this, Observer {list ->
+            list?.let { result.text = it.map { it.title }.toString()}
         })
     }
 
